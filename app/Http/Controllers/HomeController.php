@@ -6,13 +6,15 @@ use App\Country;
 
 class HomeController extends Controller
 {
-    public function countries(){
+    public function countries()
+    {
         $countries = Country::all();
-        return view('countries',['countries'=>$countries]);
+        return view('countries', ['countries' => $countries]);
     }
 
-    public function states(){
+    public function states()
+    {
         $countries = Country::all();
-        return view('states',['countries'=>$countries]);
+        return view('states', ['countries' => $countries]);
     }
 }
