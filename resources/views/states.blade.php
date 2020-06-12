@@ -12,8 +12,11 @@
 
     <?php $states = \App\State::states($country->iso3); ?>
     @foreach($states as $key=>$state)
+
+        @php $key = \App\Services\FilterService::removeSpecialCharacters($key); @endphp
+
         DB::table('states')->updateOrInsert(['id' => {{ $count }}], [<br>
-        'name'       => '{{ str_replace("'","",$state) }}',<br>
+        'name'       =>  '{{ \App\Services\FilterService::removeSpecialCharacters($state)  }}',<br>
         'iso2'       => '{{ $key }}',<br>
         'code'       => '{{ $country->code }}-{{ $key }}',<br>
         'country_id' => {{ $country->country_id }},<br>
