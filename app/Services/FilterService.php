@@ -16,7 +16,6 @@ class FilterService
         $string = str_replace('~', '', $string);
         $string = str_replace('?', '', $string);
         $string = str_replace("¶", '', $string);
-        $string = str_replace("Ã", '', $string);
         $string = str_replace("¥", '', $string);
         $string = str_replace("¤", '', $string);
         $string = str_replace(' (en)', '', $string);
