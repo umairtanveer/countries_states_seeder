@@ -26,17 +26,18 @@
 
     @foreach ($country->states() as $key => $state)
 
-        @php $key = \App\Services\FilterService::removeSpecialCharacters($key); @endphp
+        @if(!empty($key) && !empty($state))
+            @php $key = \App\Services\FilterService::removeSpecialCharacters($key); @endphp
 
-        $country->states()->updateOrCreate(['iso2' => '{{  $key }}', 'code' => '{{ $country->code }}-{{ $key }}'], [
-        <br>
-        'name'       => '{{ \App\Services\FilterService::removeSpecialCharacters($state) }}',<br>
-        'iso2'       => '{{ $key }}',<br>
-        'code'       => '{{ $country->code }}-{{ $key }}',<br>
-        ]); <br>
+            $country->states()->updateOrCreate(['iso2' => '{{  $key }}', 'code' => '{{ $country->code }}-{{ $key }}'], [
+            <br>
+            'name'       => '{{ \App\Services\FilterService::removeSpecialCharacters($state) }}',<br>
+            'iso2'       => '{{ $key }}',<br>
+            'code'       => '{{ $country->code }}-{{ $key }}',<br>
+            ]); <br>
 
-        <br>
-
+            <br>
+        @endif
     @endforeach
 
     <br>
