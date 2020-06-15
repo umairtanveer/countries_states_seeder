@@ -15,9 +15,10 @@ class FilterService
 //        $string = implode(',',array_unique(explode(',', $string)));
         $string = str_replace('~', '', $string);
         $string = str_replace('?', '', $string);
-        $string = str_replace("¶", '', $string);
-        $string = str_replace("¥", '', $string);
-        $string = str_replace("¤", '', $string);
+        $string = str_replace("'", '', $string);
+        $string = str_replace('¶', '', $string);
+        $string = str_replace('¥', '', $string);
+        $string = str_replace('¤', '', $string);
         $string = str_replace(' (en)', '', $string);
         return $string;
     }
